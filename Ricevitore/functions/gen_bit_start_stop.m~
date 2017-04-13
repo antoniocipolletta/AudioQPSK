@@ -1,0 +1,20 @@
+function [ trovami ] = gen_bit_start_stop( )
+% Genera il vettore di bit della sequenza di start e di quella di stop
+%   sono uguali
+%   Si basa sulla sequenza di Barkasjdaiw(cercare nome) che ottimizza
+%   la ricerca di una sequenza attraverso la convoluzione.
+
+v1 = [1,1,1,1,1,0,0,1,1,0,1,0,1];  %vettore generato da noi
+v2 = zeros (1,52);% creo un vettore di tutti 0 di lunghezza 39
+v3 = ones (1,4); %creo un vettore lungo 3 di soli 1
+for i = 0:12     %ciclo for per inserire nel vettore v2 i valori del 
+                 %vettore v1 estesi per 3 volte
+    
+    v2 (i*4+1:i*4+4)= v3.*v1(i+1);     
+                       
+end
+
+trovami = v2;
+
+end
+
